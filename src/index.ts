@@ -19,5 +19,6 @@ app.get('/error', (req: Request, res: Response, next: NextFunction) => {
 app.use(errorMiddleware);
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-undef
   console.log(`Server is running on port ${PORT}`);
 });
