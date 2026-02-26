@@ -2,10 +2,10 @@ import express, { Express, NextFunction, Request, Response } from 'express';
 import { errorMiddleware } from './middleware/errors';
 import { BadRequestException } from './exceptions/bad-requests';
 import rootRouter from './routes';
-import { PORT } from './secrets';
 
 const app: Express = express();
 
+app.use(express.json());
 app.use('/api', rootRouter);
 
 app.get('/', (req: Request, res: Response) => {
@@ -18,7 +18,4 @@ app.get('/error', (req: Request, res: Response, next: NextFunction) => {
 
 app.use(errorMiddleware);
 
-app.listen(PORT, () => {
-  // eslint-disable-next-line no-undef
-  console.log(`Server is running on port ${PORT}`);
-});
+export default app;

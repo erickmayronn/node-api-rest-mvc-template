@@ -10,7 +10,7 @@ export class HttpException extends Error {
     message: string,
     errorCode: ErrorCode,
     statusCode: number,
-    error: ErrorCode,
+    error: any,
   ) {
     super(message);
     this.message = message;
