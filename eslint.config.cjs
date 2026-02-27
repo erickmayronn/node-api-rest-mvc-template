@@ -4,8 +4,6 @@ const tseslint = require('typescript-eslint');
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
   js.configs.recommended,
-
-  // TypeScript setup
   {
     files: ['**/*.ts'],
     languageOptions: {
@@ -21,17 +19,14 @@ module.exports = [
       '@typescript-eslint': tseslint.plugin,
     },
     rules: {
-      // 🔥 Disable base rule
       'no-unused-vars': 'off',
-
-      // ✅ Enable TS version
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_' },
       ],
     },
   },
-  // CommonJS config files
+
   {
     files: ['**/*.cjs'],
     languageOptions: {
